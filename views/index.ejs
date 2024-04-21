@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ミケが望む健康</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div id="header">ミケが望む健康</div>
+    <div id="imageContainer">
+      <div id="image"></div>
+      <div id="gage"></div>
+    </div>
+    <div id="selectContainer">
+      <% logs.forEach((log)=>{ %>
+      <p><%= log.logName %></p>
+      <p><%= log.results %></p>
+      <button id="<%= log.idName %>"><%= log.buttonText %></button>
+      <% }) %>
+    </div>
+    <div id="metaDiv">
+      <p>ミケの健康度：<%= health %></p>
+      <p>ミケの幸福度：<%= happiness %></p>
+    </div>
+  </body>
+</html>

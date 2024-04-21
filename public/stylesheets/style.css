@@ -1,0 +1,28 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+#header {
+  height: 15vh;
+  width: 100vw;
+  background-color: #00b7ff;
+}
+
+#imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+  width: 100vw;
+  background-color: aquamarine;
+}
+
+#selectContainer {
+  height: 40vh;
+  width: 100vw;
+  background-color: rgb(205, 255, 255);
+}
