@@ -12,14 +12,22 @@
     </div>
     <div id="selectContainer">
       <% logs.forEach((log)=>{ %>
-      <p><%= log.logName %></p>
-      <p><%= log.results %></p>
-      <button id="<%= log.idName %>"><%= log.buttonText %></button>
-      <% }) %>
+
+      <!-- カテゴリごとのdiv -->
+      <div id="<%= log.logName + 'Container' %>" class="logContainter">
+        <!-- clearしているかどうかの表示 -->
+        <% if(log.results){ %>
+        <p>cleared!</p>
+        <% } %>
+
+        <!-- ボタンとフォーム -->
+        <form action="/" method="post" id="<%= log.logName %>Form">
+          <button id="<%= log.idName %>"><%= log.buttonText %></button>
+        </form>
+      </div>
+      <% }); %>
     </div>
-    <div id="metaDiv">
-      <p>ミケの健康度：<%= health %></p>
-      <p>ミケの幸福度：<%= happiness %></p>
-    </div>
+    <div id="metaDiv" class="meta"></div>
+    <script src="/javascripts/script.js"></script>
   </body>
 </html>

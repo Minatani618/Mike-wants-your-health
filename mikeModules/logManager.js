@@ -18,17 +18,20 @@ class LogManager {
     }
 
     //ログファイルの行ループ
-    const todayLogs = logFileLines.filter((line) => {
-      const logDate = new Date().toISOString().replace(/T.*/, " ");
-      return logDate.toDateString() === targetDate.toDateString();
+    let result = false;
+    logFileLines.map((line) => {
+      const logDate = line;
+      if (logDate === targetDate) {
+        result = true;
+      }
     });
-    return todayLogs;
+    return result;
   }
 
   //ログファイルの最後尾に日付を追加
   writeLog() {
     if (!this.checkTodayLog(new Date().toISOString().replace(/T.*/, " "))) {
-      fs.appendFileSync(this.logFilePath, new Date().toISOString().replace(/T.*/, " "));
+      fs.appendFileSync(this.logFilePath, "\n" + new Date().toISOString().replace(/T.*/, " "));
     }
   }
 
