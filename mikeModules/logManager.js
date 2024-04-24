@@ -1,9 +1,11 @@
 const fs = require("fs");
 const path = require("path");
+const moment = require("moment");
 
 class LogManager {
   constructor(logName) {
     this.logFilePath = path.join(__dirname, "../public/logs", logName + ".txt");
+    this.now = moment().format("YYYY-MM-DD");
   }
 
   //その日のログがあるかどうかを確認
@@ -30,8 +32,8 @@ class LogManager {
 
   //ログファイルの最後尾に日付を追加
   writeLog() {
-    if (!this.checkTodayLog(new Date().toISOString().replace(/T.*/, " "))) {
-      fs.appendFileSync(this.logFilePath, "\n" + new Date().toISOString().replace(/T.*/, " "));
+    if (!this.checkTodayLog(this.now)) {
+      fs.appendFileSync(this.logFilePath, "\n" + this.now);
     }
   }
 

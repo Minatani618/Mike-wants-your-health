@@ -14,6 +14,13 @@ weatherReportsButton.addEventListener("click", function () {
   submitPostForm("weatherReports", "weatherReports");
 });
 
+//bodyWeight
+const bodyWeightButton = document.getElementById("bodyWeightButton");
+bodyWeightButton.addEventListener("click", function () {
+  /* window.open(" "); */
+  submitPostForm("bodyWeight", "bodyWeight");
+});
+
 //postメソッドでフォームを送信
 const submitPostForm = (name, value) => {
   const input = document.createElement("input");
